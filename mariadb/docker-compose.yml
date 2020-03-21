@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mysql:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: prisma
+    volumes:
+      - mariadb:/var/lib/mariadb
+volumes:
+  mariadb:
