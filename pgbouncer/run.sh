@@ -1,1 +1,0 @@
-pgbouncer -q ./pgbouncer.ini

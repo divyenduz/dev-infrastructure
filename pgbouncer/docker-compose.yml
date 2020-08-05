@@ -1,19 +1,12 @@
 version: '3.1'
 
 services:
-  # pgadmin4 for pgbouncer.
-  pgadmin4-master:
-    image: fenglc/pgadmin4
-    ports:
-      - 5050:5050
-    links:
-      - postgres:postgres
-    environment:
-      DEFAULT_USER: pgbouncer_database
-      DEFAULT_PASSWORD: 12345678
   # Postgres database.
   postgres:
     image: postgres:9.6.5
+    # image: timms/postgres-logging:9.6
+    restart: always
+    command: postgres -c 'max_connections=1' -c 'superuser_reserved_connections=0'
     environment:
       POSTGRES_USER: postgres # define credentials
       POSTGRES_PASSWORD: postgres # define credentials
@@ -29,9 +22,11 @@ services:
       DB_PASSWORD: postgres # define credentials
       DB_port: 5433 # define database
       POOL_MODE: 'transaction'
-      MAX_CLIENT_CONN: '1000'
-      SERVER_RESET_QUERY_ALWAYS: '1'
-      SERVER_RESET_QUERY: 'DEALLOCATE ALL'
+      MAX_CLIENT_CONN: '2'
+      # SERVER_RESET_QUERY_ALWAYS: '0'
+      # SERVER_RESET_QUERY: 'DISCARD ALL'
+      # SERVER_RESET_QUERY_ALWAYS: '1'
+      # SERVER_RESET_QUERY: 'DEALLOCATE ALL'
     links:
       - postgres:postgres
     ports:
