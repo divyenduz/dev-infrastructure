@@ -1,6 +1,6 @@
 # Introduction
 
-This repository helps in setting up various databases locally via docker.
+This repository helps in setting up various databases and infrastructure components locally via docker.
 
 # Requirements
 
