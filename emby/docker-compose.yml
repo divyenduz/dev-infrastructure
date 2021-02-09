@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  emby:
+    image: ghcr.io/linuxserver/emby
+    container_name: emby
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /home/pi/Documents/emby:/config
+      - /home/pi/Videos:/data/movies
+    ports:
+      - 8096:8096
+    restart: unless-stopped

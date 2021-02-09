@@ -1,0 +1,32 @@
+version: '3.7'
+
+# starts 4 docker containers running minio server instances.
+# using nginx reverse proxy, load balancing, you can access
+# it through port 9000.
+services:
+  minio1:
+    image: minio/minio:RELEASE.2021-02-07T01-31-02Z
+    volumes:
+      - /home/pi/Videos/:/videos
+    expose:
+      - "9000"
+    environment:
+      MINIO_ROOT_USER: divyendu
+      MINIO_ROOT_PASSWORD: Login123
+    command: server /videos
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    restart: always
+
+  nginx:
+    image: nginx:1.19.2-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "9000:9000"
+    depends_on:
+      - minio1
+    restart: always
