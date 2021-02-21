@@ -1,0 +1,24 @@
+version: "3"
+
+networks:
+  gitea:
+    external: false
+
+services:
+  server:
+    image: gitea/gitea:1.13.2
+    container_name: gitea
+    environment:
+      - USER_UID=1001 # ID of git user on the host (`adduser -m git; id -u git`)
+      - USER_GID=1001
+    restart: always
+    networks:
+      - gitea
+    volumes:
+      - ./gitea:/data
+      - /home/git/.ssh/:/data/git/.ssh
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "8000:3000"
+      - "2222:22"
