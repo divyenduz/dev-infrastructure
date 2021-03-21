@@ -21,9 +21,29 @@
             </tr>
         </th>
         <tr>
+            <td>Darth</td>
+            <td>http://darth.local</td>
+            <td>http://darth.pi</td>
+        </tr>
+        <tr>
             <td>emby</td>
-            <td>http://emby.darth.pi</td>
-            <td>http://darth:pi:8096</td>
+            <td>http://emby.local</td>
+            <td>http://darth.pi:8096</td>
+        </tr>
+        <tr>
+            <td>minio</td>
+            <td>http://minio.local</td>
+            <td>http://darth.pi:9000</td>
+        </tr>
+        <tr>
+            <td>ghost</td>
+            <td>http://ghost.local</td>
+            <td>http://darth.pi:2368</td>
+        </tr>
+        <tr>
+            <td>gitea</td>
+            <td>http://gitea.local</td>
+            <td>http://darth.pi:8000</td>
         </tr>
     </table>
 
@@ -39,8 +59,14 @@
         </th>
         <tr>
             <td>
+                # START via darth.pi<br />
                 192.168.2.120 darth.pi<br />
-                192.168.2.120 emby.darth.pi<br />
+                192.168.2.120 darth.local<br />
+                192.168.2.120 emby.local<br />
+                192.168.2.120 minio.local<br />
+                192.168.2.120 ghost.local<br />
+                192.168.2.120 gitea.local<br />
+                # END via darth.pi<br />
             </td>
         </tr>
     </table>
