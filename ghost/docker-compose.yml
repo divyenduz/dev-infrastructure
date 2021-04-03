@@ -1,0 +1,25 @@
+version: "3.2"
+
+services:
+  ghost:
+    image: ghost:4-alpine
+    restart: always
+    ports:
+      - 2368:2368
+    volumes:
+      - /var/www/ghost/content/data:/var/lib/ghost/content/data
+      - /var/www/ghost/content/apps:/var/lib/ghost/content/apps
+      - /var/www/ghost/content/images:/var/lib/ghost/content/images
+      - /var/www/ghost/content/themes:/var/lib/ghost/content/themes
+      - ./config/config.development.json:/var/lib/ghost/config.development.json
+      - ./config/config.production.json:/var/lib/ghost/config.production.json
+
+volumes:
+  ghost_data:
+    driver: local
+  ghost_apps:
+    driver: local
+  ghost_images:
+    driver: local
+  ghost_themes:
+    driver: local
