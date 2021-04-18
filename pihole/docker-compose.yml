@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  pihole:
+    container_name: pihole
+    environment:
+      - ServerIP=host.docker.internal
+      - WEBPASSWORD=prisma
+      - TZ=Europe/Berlin
+      - DNS1=127.17.0.1
+      - DNS2=1.1.1.1
+      - DNS3=1.0.0.1
+    ports:
+      - "80:80"
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "443:443"
+    restart: unless-stopped
+    image: "pihole/pihole:latest"
