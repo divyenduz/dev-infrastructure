@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  server:
+    container_name: bitwarden
+    restart: always
+    volumes:
+      - "/bw-data/:/data/"
+    ports:
+      - "0.0.0.0:3013:80"
+      - "0.0.0.0:3012:3012"
+    image: "bitwardenrs/server:latest"
