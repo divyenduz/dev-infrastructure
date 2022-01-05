@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: postgres
+    image: supabase/postgres
     network_mode: bridge
     restart: always
     ports:
