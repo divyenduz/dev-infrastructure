@@ -1,0 +1,4 @@
+export
+consume
+.env
+docker-compose.env
