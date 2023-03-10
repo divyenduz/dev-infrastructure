@@ -1,0 +1,11 @@
+{
+  "name": "janusgraph",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.17.11",
+    "esbuild-runner": "^2.2.2",
+    "gremlin": "^3.6.2"
+  }
+}

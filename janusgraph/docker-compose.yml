@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+    janusgraph:
+        container_name: janusgraph-default
+        image: 'janusgraph/janusgraph:latest'
+        ports:
+          - '8182:8182'
+        
