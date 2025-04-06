@@ -22,6 +22,10 @@ docker-compose down
 
 The login credentials are in the respective `docker-compose.yml` file. When a user name is not mentioned, it is usually `root`.
 
+# References
+
+- https://awesome-docker-compose.com/apps
+
 # Contributing
 
 Please feel free to raise a pull request to improve the readme/configuration files of this repository.
